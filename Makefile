@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3
 
 INTERNAL_LIBS = -lft
-EXTERNAL_LIBS = -lm -lXext -lX11 -lz -lmlx
+EXTERNAL_LIBS = -lm -lmlx -lXext -lX11
 
 VALGRIND = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -q --tool=memcheck
 
