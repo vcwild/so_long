@@ -1,11 +1,11 @@
 NAME = $(BINS_PATH)/solong
-MAP = ./img/map2.ber
+MAP = ./img/map1.ber
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3
 
-INTERNAL_LIBS = -lmlx -lft
-EXTERNAL_LIBS = -lm -lXext -lX11 -lz
+INTERNAL_LIBS = -lft
+EXTERNAL_LIBS = -lm -lXext -lX11 -lz -lmlx
 
 VALGRIND = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -q --tool=memcheck
 
