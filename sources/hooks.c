@@ -26,7 +26,7 @@ int	keypress_hook(int keycode, t_program *program)
 		|| program->objects.exit.qty == 0)
 	{
 		if (program->objects.exit.qty == 0)
-			printf("\033[32mYOU WIN!\n\033[0");
+			printf("\033[32mYOU WIN!\n\033[0m");
 		exit_game_gracefully(program);
 	}
 	draw_map(program);
