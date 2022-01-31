@@ -2,7 +2,7 @@ NAME = solong
 MAP = ./map2.ber
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror
 
 INTERNAL_LIBS = -lft
 EXTERNAL_LIBS = -lm -lmlx -lXext -lX11
@@ -12,10 +12,6 @@ VALGRIND = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes 
 LIBFT = libft.a
 LIBFT_PATH = $(LIBS_PATH)/libft
 LIBFT_ARCHIVE = $(ARCHIVES_PATH)/$(LIBFT)
-
-MLX = libmlx.a
-MLX_PATH = $(LIBS_PATH)/mlx_linux
-MLX_ARCHIVE = $(ARCHIVES_PATH)/$(MLX)
 
 MAKE_EXTERNAL = make -C
 SAFE_MKDIR = mkdir -p
@@ -59,7 +55,7 @@ OBJECTS = $(addprefix $(OBJECTS_PATH)/,$(subst .c,.o,$(SOURCE_FILES)))
 
 all: $(NAME)
 
-$(NAME): local_mkdir build_libft build_libmlx $(OBJECTS) $(HEADER)
+$(NAME): local_mkdir build_libft $(OBJECTS) $(HEADER)
 	@$(CC) $(CFLAGS) -w -g $(OBJECTS) -o $(NAME) -L $(ARCHIVES_PATH) -I $(INCLUDES_PATH) $(EXTERNAL_LIBS) $(INTERNAL_LIBS)
 
 $(OBJECTS_PATH)/%.o: $(SOURCES_PATH)/%.c $(HEADER)
@@ -74,18 +70,9 @@ build_libft:
 	@$(SAFE_MKDIR) $(ARCHIVES_PATH)
 	@$(COPY) $(LIBFT_PATH)/$(LIBFT) $(ARCHIVES_PATH)
 
-build_libmlx:
-	@$(MAKE_EXTERNAL) $(MLX_PATH)
-	@$(SAFE_MKDIR) $(ARCHIVES_PATH)
-	@$(COPY) $(MLX_PATH)/$(MLX) $(ARCHIVES_PATH)
-
 libft_clean:
 	$(MAKE_EXTERNAL) $(LIBFT_PATH) fclean
 	$(REMOVE) $(LIBFT_ARCHIVE)
-
-libmlx_clean:
-	$(MAKE_EXTERNAL) $(MLX_PATH) clean
-	$(REMOVE) $(MLX_ARCHIVE)
 
 run: $(NAME)
 	@./$(NAME) $(MAP)
@@ -101,7 +88,7 @@ archives_clean:
 clean:
 	$(REMOVE) $(OBJECTS_PATH)
 
-fclean: clean archives_clean libft_clean libmlx_clean
+fclean: clean archives_clean libft_clean
 	$(REMOVE) $(NAME)
 
-.PHONY: all run valgrind re fclean clean archives_clean libft_clean libmlx_clean
+.PHONY: all run valgrind re fclean clean archives_clean libft_clean
