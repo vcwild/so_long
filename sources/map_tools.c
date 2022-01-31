@@ -107,7 +107,10 @@ static int	verify_valid_entities_for(t_program *program)
 				&& program->grid[row][col] != MAP_EXIT
 				&& program->grid[row][col] != EMPTY_SPACE
 				&& program->grid[row][col] != WALL)
+			{
+				free_grid(program);
 				return (print_so_long_error(ERR_INVALID_MAP));
+			}
 			col++;
 		}
 		row++;

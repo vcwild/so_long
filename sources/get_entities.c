@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 18:57:45 by vwildner          #+#    #+#             */
-/*   Updated: 2022/01/21 01:42:38 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/01/31 14:34:54 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static int	count_game_entities(t_program *program)
 	return (SO_LONG_SUCCESS);
 }
 
-int	verify_game_entities_quantity_for(t_program *program)
+static int	handle_verify_entities(t_program *program)
 {
 	count_game_entities(program);
-	if (program->player.qty != 1)
+	if (program->player.qty < 1)
 		return (print_so_long_error(ERR_NO_PLAYER));
 	if (program->player.qty > 1)
 		return (print_so_long_error(ERR_MULTIPLAYER));
@@ -51,4 +51,12 @@ int	verify_game_entities_quantity_for(t_program *program)
 	if (program->objects.exit.qty < 1)
 		return (print_so_long_error(ERR_NO_EXIT));
 	return (SO_LONG_SUCCESS);
+}
+
+int	verify_game_entities_quantity_for(t_program *program)
+{
+	if (handle_verify_entities(program))
+		return (SO_LONG_SUCCESS);
+	free_grid(program);
+	return (SO_LONG_FAIL);
 }
