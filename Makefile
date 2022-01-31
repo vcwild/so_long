@@ -1,4 +1,4 @@
-NAME = $(BINS_PATH)/solong
+NAME = solong
 MAP = ./img/map1.ber
 
 CC = gcc
