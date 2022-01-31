@@ -1,5 +1,5 @@
 NAME = solong
-MAP = ./img/map1.ber
+MAP = ./map2.ber
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3
