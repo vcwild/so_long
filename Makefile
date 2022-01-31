@@ -88,10 +88,10 @@ libmlx_clean:
 	$(REMOVE) $(MLX_ARCHIVE)
 
 run: $(NAME)
-	@$(NAME) $(MAP)
+	@./$(NAME) $(MAP)
 
 valgrind: $(NAME)
-	$(VALGRIND) $(NAME) $(MAP)
+	$(VALGRIND) ./$(NAME) $(MAP)
 
 re:	fclean all
 
