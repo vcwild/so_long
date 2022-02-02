@@ -16,7 +16,7 @@ Compilation requirements
 
 - Ubuntu
 
-`sudo apt install libbsd-dev libXext-dev
+`sudo apt install libbsd-dev libXext-dev`
 
 - Fedora
 
