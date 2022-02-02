@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:32:10 by vwildner          #+#    #+#             */
-/*   Updated: 2022/01/29 19:15:41 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/31 20:02:57 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,5 +166,7 @@ void			move_player_down(t_program *program);
 void			ft_strcopy(char *dst, char *src, size_t len);
 
 int				load_sprites(t_program *program);
+
+int				ensure_no_gnl_leaks(t_program *program, int nrows);
 
 #endif
