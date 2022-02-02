@@ -60,7 +60,7 @@ static int	parse_map_for(int nrows, char *argv_1, t_program *program)
 		}
 		i++;
 	}
-	ensure_no_gnl_leaks(program, nrows);
+	ensure_no_gnl_leaks(program, &nrows);
 	close(fd);
 	program->nrows = nrows;
 	program->ncolumns = ft_strlen(program->grid[0]);

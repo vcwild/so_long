@@ -6,7 +6,7 @@
 /*   By: vwildner <vwildner@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:32:10 by vwildner          #+#    #+#             */
-/*   Updated: 2022/01/31 20:02:57 by vwildner         ###   ########.fr       */
+/*   Updated: 2022/02/02 11:04:15 by vwildner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,6 @@ void			ft_strcopy(char *dst, char *src, size_t len);
 
 int				load_sprites(t_program *program);
 
-int				ensure_no_gnl_leaks(t_program *program, int nrows);
+int				ensure_no_gnl_leaks(t_program *program, int *nrows);
 
 #endif
